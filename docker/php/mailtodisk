@@ -1,0 +1,13 @@
+#!/usr/local/bin/php
+<?php
+$input = file_get_contents('php://stdin');
+if (!file_exists('/var/www/html/mailoutput')) {
+    mkdir('/var/www/html/mailoutput', 0777);
+}
+$filename = '/var/www/html/mailoutput/mail-' . gmdate('Ymd-Hi-s') . '.txt';
+$retry = 0;
+while(is_file($filename))
+{
+    $filename = '/var/www/html/mailoutput/mail-' . gmdate('Ymd-Hi-s') . '-' . ++$retry . '.txt';
+}
+file_put_contents($filename, $input);

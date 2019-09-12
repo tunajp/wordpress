@@ -1,0 +1,5 @@
+docker_volumes
+docker_volumes/web/adminer*.php
+docker_volumes/web/mailoutput
+docker_volumes/web/wp-content/upgrade
+docker_volumes/web/wp-content/uploads
